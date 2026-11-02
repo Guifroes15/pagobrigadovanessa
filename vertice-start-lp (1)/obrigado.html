@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compra confirmada · Vértice Start</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F6F1EA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bodoni+Moda:opsz,wght@6..96,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Mesmo sistema da LP: marfim, café escuro e champanhe. Uma dobra com foto que se dissolve no fundo e três passos claros logo abaixo. Tema único claro. */
+  --ivory:#F6F1EA;
+  --sand:#EDE4D7;
+  --white:#FFFDFA;
+  --espresso:#17120F;
+  --text:#2B2622;
+  --muted:#7A7068;
+  --gold:#C6A16A;
+  --gold-deep:#A9844C;
+  --line:#E4D9CA;
+  --font:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --logo:"Bodoni Moda", Didot, Georgia, serif;
+  --shadow:0 40px 80px -30px rgba(44,28,14,.35), 0 12px 24px -12px rgba(44,28,14,.12);
+  --shadow-sm:0 20px 40px -20px rgba(44,28,14,.25);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ivory);color:var(--text);font-family:var(--font);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.035em;line-height:1.06;text-wrap:balance;color:var(--espresso)}
+h1{font-size:clamp(38px,5vw,66px)}
+h2{font-size:clamp(26px,3vw,36px)}
+h3{font-size:18px;letter-spacing:-.01em;line-height:1.3}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.container{max-width:1140px;margin:0 auto;padding:0 20px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);display:block}
+
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 30px;border-radius:8px;font-weight:700;font-size:15px;transition:transform .35s,box-shadow .35s,color .35s;border:0;cursor:pointer}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .35s}
+.btn:hover::before{opacity:1}
+.btn svg{width:18px;height:18px;transition:transform .35s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-gold{background:linear-gradient(135deg,#D6B57F 0%,#B8925A 100%);color:#1C140C;box-shadow:0 16px 32px -14px rgba(169,132,76,.8)}
+.btn-gold::before{background:var(--espresso)}
+.btn-gold:hover{color:var(--gold);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--espresso);box-shadow:inset 0 0 0 1.5px rgba(23,18,15,.25)}
+.btn-ghost::before{background:var(--espresso)}
+.btn-ghost:hover{color:var(--white)}
+
+/* Topo */
+.header{position:absolute;left:0;right:0;top:0;z-index:20}
+.header .container{padding-top:22px;padding-bottom:22px}
+.logo{display:inline-flex;flex-direction:column;line-height:1;gap:4px}
+.logo small{font-size:8.5px;letter-spacing:.55em;color:var(--muted);font-weight:600;padding-left:2px}
+.logo b{font-family:var(--logo);font-weight:400;font-size:23px;letter-spacing:.24em;color:var(--espresso)}
+
+.hero{position:relative;overflow:hidden;min-height:700px;display:flex;align-items:center;
+  background:radial-gradient(120% 90% at 85% 10%,#FBF7F1 0%,rgba(251,247,241,0) 55%),linear-gradient(160deg,#F6F1EA 0%,#ECE2D4 100%)}
+.hero .container{position:relative;z-index:2;width:100%;padding-top:130px;padding-bottom:80px}
+.hero .copy{max-width:560px;display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.hero h1 span{color:var(--gold-deep)}
+.sub{font-size:clamp(17px,1.4vw,19px);color:var(--muted);max-width:46ch}
+.seal{display:inline-flex;align-items:center;gap:12px;background:var(--white);border-radius:999px;padding:8px 16px 8px 8px;box-shadow:var(--shadow-sm);font-size:14px;font-weight:600;color:var(--espresso)}
+.seal i{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#D6B57F,#B8925A);display:grid;place-items:center;color:#1C140C;animation:pop .6s cubic-bezier(.2,1.4,.4,1) both}
+.seal i svg{width:16px;height:16px}
+@keyframes pop{from{transform:scale(.4)}to{transform:scale(1)}}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.photo{position:absolute;right:0;top:0;bottom:0;width:min(54%,780px);z-index:1}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 34%),linear-gradient(to top,transparent 0%,#000 20%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent 0%,#000 34%),linear-gradient(to top,transparent 0%,#000 20%);mask-composite:intersect}
+
+/* Passos */
+.steps{padding:clamp(64px,8vw,104px) 0 clamp(72px,9vw,112px)}
+.steps .head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:44px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.step{background:var(--white);border-radius:18px;padding:32px 28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:12px}
+.step .n{width:44px;height:44px;border-radius:50%;background:var(--espresso);color:var(--gold);display:grid;place-items:center;font-weight:700;font-size:15px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:15px}
+.step a.inline{margin-top:auto;padding-top:8px;font-size:14px;font-weight:700;color:var(--gold-deep);display:inline-flex;align-items:center;gap:6px}
+.step a.inline svg{width:15px;height:15px}
+.help{margin-top:36px;text-align:center;font-size:14px;color:var(--muted)}
+.help a{color:var(--espresso);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:900px){.grid{grid-template-columns:1fr;gap:14px}}
+
+footer{background:var(--espresso);color:#8F857A;font-size:13px}
+footer .container{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:26px;padding-bottom:26px}
+footer .logo b{color:#fff;font-size:18px}
+
+/* Celular */
+@media (max-width:900px){
+  .hero{flex-direction:column;align-items:stretch;min-height:0}
+  .photo{position:relative;width:100%;height:min(46vh,380px);order:-1}
+  .photo img{object-position:center 18%;-webkit-mask-image:linear-gradient(to top,transparent 0%,#000 38%);mask-image:linear-gradient(to top,transparent 0%,#000 38%)}
+  .hero .container{padding-top:0;margin-top:-30px;padding-bottom:56px}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  h1{font-size:clamp(32px,9vw,38px)}
+  h2{font-size:26px}
+  .sub{font-size:16px}
+  .hero .copy{gap:16px}
+  .actions{width:100%}
+  .actions .btn{width:100%}
+  .logo b{font-size:20px}
+  .step{padding:22px 20px;display:grid;grid-template-columns:44px 1fr;column-gap:16px;row-gap:4px;align-items:start}
+  .step .n{grid-row:span 3;margin:0}
+  .step a.inline{padding-top:4px}
+  footer .container{flex-direction:column;align-items:flex-start;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container"><span class="logo" aria-label="Método Vértice"><small>MÉTODO</small><b>VÉRTICE</b></span></div>
+</header>
+
+<section class="hero">
+  <div class="photo"><img src="obrigado.jpg" alt="Vanessa Ferreira de blazer off-white, sentada no sofá com o notebook"></div>
+  <div class="container">
+    <div class="copy">
+      <span class="seal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></i>Compra confirmada</span>
+      <h1>Sua vaga no Vértice Start está <span>garantida</span>.</h1>
+      <p class="sub">Que alegria ter você aqui. Seu acesso já foi enviado para o e-mail que você usou na compra.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="#" data-members>Acessar a área de membros <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps" aria-labelledby="t-steps">
+  <div class="container">
+    <div class="head">
+      <span class="kicker">Próximos passos</span>
+      <h2 id="t-steps">Comece em 3 passos.</h2>
+    </div>
+    <div class="grid">
+      <div class="step">
+        <span class="n">01</span>
+        <h3>Confira seu e-mail</h3>
+        <p>A Kiwify enviou seus dados de acesso. Se não encontrar, olhe também no spam e na aba Promoções.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <h3>Entre na área de membros</h3>
+        <p>Faça login com o mesmo e-mail da compra e comece pelo Módulo 01.</p>
+        <a class="inline" href="#" data-members>Acessar agora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <h3>Fale com a gente</h3>
+        <p>Qualquer dúvida sobre o acesso, nossa equipe responde pelo WhatsApp.</p>
+        <a class="inline" href="#" data-wa>Chamar no WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <p class="help">Comprou com um e-mail diferente do que usa no dia a dia? <a href="#" data-wa>Avise a equipe</a> que a gente ajusta.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span class="logo"><b>VÉRTICE</b></span>
+    <span>© 2026 Método Vértice · Vanessa Ferreira</span>
+  </div>
+</footer>
+
+<script>
+/* ===== CONFIGURAÇÃO: preencha antes de publicar ===== */
+var CONFIG = {
+  membersUrl: "",           /* link da área de membros da Kiwify */
+  whatsapp: "",             /* só números com DDI e DDD, ex.: 5531999999999 */
+  whatsappMsg: "Olá! Acabei de comprar o Vértice Start e tenho uma dúvida sobre o acesso.",
+  metaPixelId: ""           /* ID do Pixel da Meta (só PageView; a compra é registrada pela integração da Kiwify) */
+};
+/* ===================================================== */
+(function(){
+  if(CONFIG.metaPixelId){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init',CONFIG.metaPixelId); fbq('track','PageView');
+  }
+  document.querySelectorAll("[data-members]").forEach(function(a){
+    if(CONFIG.membersUrl){ a.href=CONFIG.membersUrl; a.target="_blank"; a.rel="noopener"; }
+  });
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    if(CONFIG.whatsapp){ a.href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(CONFIG.whatsappMsg); a.target="_blank"; a.rel="noopener"; }
+  });
+})();
+</script>
+</body>
+</html>
