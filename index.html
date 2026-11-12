@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Compra confirmada · Vértice Start</title>
+<title>Compra confirmada · Método Vértice</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#F6F1EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,14 +125,14 @@ footer .logo b{color:#fff;font-size:18px}
 </header>
 
 <section class="hero">
-  <div class="photo"><img src="obrigado.jpg" alt="Vanessa Ferreira de blazer off-white, sentada no sofá com o notebook"></div>
+  <div class="photo"><img id="foto" src="obrigado.jpg" alt="Vanessa Ferreira"></div>
   <div class="container">
     <div class="copy">
       <span class="seal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></i>Compra confirmada</span>
-      <h1>Sua vaga no Vértice Start está <span>garantida</span>.</h1>
-      <p class="sub">Que alegria ter você aqui. Seu acesso já foi enviado para o e-mail que você usou na compra.</p>
+      <h1 id="titulo">Sua compra está <span>confirmada</span>.</h1>
+      <p class="sub" id="subtitulo">Que alegria ter você aqui. Seu acesso já foi enviado para o e-mail que você usou na compra.</p>
       <div class="actions">
-        <a class="btn btn-gold" href="#" data-members>Acessar a área de membros <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-gold" href="#" id="cta" data-members><span id="cta-txt">Acessar a área de membros</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>
@@ -142,27 +142,9 @@ footer .logo b{color:#fff;font-size:18px}
   <div class="container">
     <div class="head">
       <span class="kicker">Próximos passos</span>
-      <h2 id="t-steps">Comece em 3 passos.</h2>
+      <h2 id="t-steps">Seus próximos 3 passos.</h2>
     </div>
-    <div class="grid">
-      <div class="step">
-        <span class="n">01</span>
-        <h3>Confira seu e-mail</h3>
-        <p>A Kiwify enviou seus dados de acesso. Se não encontrar, olhe também no spam e na aba Promoções.</p>
-      </div>
-      <div class="step">
-        <span class="n">02</span>
-        <h3>Entre na área de membros</h3>
-        <p>Faça login com o mesmo e-mail da compra e comece pelo Módulo 01.</p>
-        <a class="inline" href="#" data-members>Acessar agora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-      <div class="step">
-        <span class="n">03</span>
-        <h3>Fale com a gente</h3>
-        <p>Qualquer dúvida sobre o acesso, nossa equipe responde pelo WhatsApp.</p>
-        <a class="inline" href="#" data-wa>Chamar no WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div>
+    <div class="grid" id="passos"></div>
     <p class="help">Comprou com um e-mail diferente do que usa no dia a dia? <a href="#" data-wa>Avise a equipe</a> que a gente ajusta.</p>
   </div>
 </section>
@@ -177,13 +159,35 @@ footer .logo b{color:#fff;font-size:18px}
 <script>
 /* ===== CONFIGURAÇÃO: preencha antes de publicar ===== */
 var CONFIG = {
-  membersUrl: "",           /* link da área de membros da Kiwify */
-  whatsapp: "",             /* só números com DDI e DDD, ex.: 5531999999999 */
-  whatsappMsg: "Olá! Acabei de comprar o Vértice Start e tenho uma dúvida sobre o acesso.",
+  membersUrl: "https://members.kiwify.com/?club=69885ccc-2843-47e7-b2cb-986d9aeded2a",
+  whatsapp: "553192289577", /* só números com DDI e DDD */
   metaPixelId: ""           /* ID do Pixel da Meta (só PageView; a compra é registrada pela integração da Kiwify) */
+};
+var AR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+/* Página única para os três produtos: Vértice Vox, Vértice Start e Box de Consultoria */
+var P = {
+  titulo: 'Sua compra está <span>confirmada</span>.',
+  sub: 'Que alegria ter você no Método Vértice. Os detalhes da compra e o seu acesso já foram enviados para o e-mail que você usou.',
+  cta: 'Acessar a área de membros', foto: 'obrigado.jpg',
+  wa: 'Olá! Acabei de fazer uma compra no Método Vértice e tenho uma dúvida.',
+  passos: [
+    ['Confira seu e-mail', 'A Kiwify enviou o comprovante e os seus dados de acesso. Se não encontrar, olhe também no spam e na aba Promoções.'],
+    ['Entre na área de membros', 'Faça login com o mesmo e-mail da compra. O que você comprou já aparece liberado lá dentro.', 'members', 'Acessar agora'],
+    ['Fale com a gente', 'Comprou o Box de Consultoria? Chame a equipe para agendar o seu horário. Qualquer outra dúvida, é só chamar também.', 'wa', 'Chamar no WhatsApp']
+  ]
 };
 /* ===================================================== */
 (function(){
+  document.getElementById('titulo').innerHTML = P.titulo;
+  document.getElementById('subtitulo').textContent = P.sub;
+  document.getElementById('cta-txt').textContent = P.cta;
+  var cta = document.getElementById('cta');
+  document.getElementById('foto').src = P.foto;
+  document.getElementById('passos').innerHTML = P.passos.map(function(s, i){
+    var link = s[2] ? '<a class="inline" href="#" ' + (s[2] === 'wa' ? 'data-wa' : 'data-members') + '>' + s[3] + ' ' + AR + '</a>' : '';
+    return '<div class="step"><span class="n">0' + (i + 1) + '</span><h3>' + s[0] + '</h3><p>' + s[1] + '</p>' + link + '</div>';
+  }).join('');
+
   if(CONFIG.metaPixelId){
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init',CONFIG.metaPixelId); fbq('track','PageView');
@@ -192,7 +196,7 @@ var CONFIG = {
     if(CONFIG.membersUrl){ a.href=CONFIG.membersUrl; a.target="_blank"; a.rel="noopener"; }
   });
   document.querySelectorAll("[data-wa]").forEach(function(a){
-    if(CONFIG.whatsapp){ a.href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(CONFIG.whatsappMsg); a.target="_blank"; a.rel="noopener"; }
+    if(CONFIG.whatsapp){ a.href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(P.wa); a.target="_blank"; a.rel="noopener"; }
   });
 })();
 </script>
